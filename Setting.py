@@ -1,4 +1,5 @@
 import pygame
+import sys
 
 cell_number = 40
 cell_size = 20
@@ -28,3 +29,9 @@ def create_screen():
 
 def get_clock():
     return clock
+
+
+def game_over():
+    pygame.quit()
+    sys.exit()
+

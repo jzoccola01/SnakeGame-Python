@@ -1,5 +1,6 @@
 import random
 import pygame
+import sys
 import Setting
 from pygame.math import Vector2
 
@@ -20,6 +21,11 @@ class SNAKE:
         body_copy = self.body[:-1]
         body_copy.insert(0, body_copy[0] + self.direction)
         self.body = body_copy[:]
+
+    def check_snake(self):
+        if self.body[0].x < 0 or self.body[0].x >= Setting.get_cell_number() \
+                or self.body[0].y < 0 or self.body[0].y >= Setting.get_cell_number():
+            Setting.game_over()
 
 
 class FOOD:
