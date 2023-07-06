@@ -1,10 +1,10 @@
-import pygame
 import sys
 
-from pygame import font
+import pygame
 from pygame.math import Vector2
-import gameObjects
+
 import Settings
+import gameObjects
 
 # CONSTANTS:
 SCREEN_UPDATE = pygame.USEREVENT
@@ -16,6 +16,7 @@ pygame.display.set_caption("Snake Game by Jonny and Zach")
 # This function displays the current score of the game: eventually I wanna have it be on the screen
 def print_score(score):
     print(score)
+
 
 # This function runs the gameplay
 def run_game():
