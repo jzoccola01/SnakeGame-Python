@@ -1,9 +1,11 @@
 import pygame
 import sys
 
+# Settings:
 cell_number = 40
 cell_size = 20
-screen = pygame.display.set_mode((cell_number * cell_size, cell_number * cell_size))
+width, height = cell_number * cell_size, cell_number * cell_size
+screen = pygame.display.set_mode((width, height))
 clock = pygame.time.Clock()
 
 
@@ -23,7 +25,7 @@ def set_cell_number(num) -> int:
     return num
 
 
-def create_screen():
+def get_screen():
     return screen
 
 
