@@ -56,6 +56,14 @@ while True:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
                 snake.direction = Vector2(0, -1)
+            if event.key == pygame.K_DOWN:
+                snake.direction = Vector2(0, 1)
+            if event.key == pygame.K_LEFT:
+                snake.direction = Vector2(-1, 0)
+            if event.key == pygame.K_RIGHT:
+                snake.direction = Vector2(1, 0)
+
+
     screen.fill('pink')
     food.draw_food()
     snake.draw_snake()
