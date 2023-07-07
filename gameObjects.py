@@ -1,8 +1,10 @@
 import random
+
 import pygame
 from pygame.math import Vector2
-import Settings
+
 import Game
+import Settings
 
 
 class SNAKE:
@@ -40,8 +42,8 @@ class SNAKE:
 
 class FOOD:
     def __init__(self):
-        self.x = random.randint(0, Settings.cell_size - 1)
-        self.y = random.randint(0, Settings.cell_size - 1)
+        self.x = random.randint(0, min(Settings.cell_number, Settings.cell_size) - 1)
+        self.y = random.randint(0, min(Settings.cell_number, Settings.cell_size) - 1)
         self.pos = Vector2(self.x, self.y)
 
     def draw_food(self):
