@@ -5,9 +5,7 @@ from pygame.math import Vector2
 
 import Settings
 
-# hi jonny :)
 
-print("testing display branch")
 class SNAKE:
     def __init__(self):
         self.body = [Vector2(7, 10), Vector2(6, 10), Vector2(5, 10)]
