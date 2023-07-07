@@ -15,7 +15,7 @@ pygame.display.set_caption("Snake Game by Jonny and Zach")
 
 # This function displays the current score of the game: eventually I wanna have it be on the screen
 def print_score(score):
-    print(score)
+    pygame.display.set_caption("Snake Game by Jonny and Zach | Score: " + str(score))
 
 
 # This function runs the gameplay
@@ -35,6 +35,7 @@ def run_game():
 
             if event.type == SCREEN_UPDATE:
                 snake.move_snake()
+                snake.check_collision()
 
                 # If the snake gets the food
                 if snake.body[0] == food.pos:

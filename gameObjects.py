@@ -1,12 +1,14 @@
 import random
+
 import pygame
-import Settings
 from pygame.math import Vector2
+
+import Settings
 
 
 class SNAKE:
     def __init__(self):
-        self.body = [Vector2(5, 10), Vector2(6, 10), Vector2(7, 10)]
+        self.body = [Vector2(7, 10), Vector2(6, 10), Vector2(5, 10)]
         self.direction = Vector2(1, 0)
 
     def draw_snake(self):
@@ -25,6 +27,16 @@ class SNAKE:
         tail = self.body[-1]
         new_tail = tail + self.direction
         self.body.append(new_tail)
+
+    def check_collision(self):
+        if self.body[0].x < 0 or self.body[0].x >= Settings.get_cell_number() or self.body[
+                0].y >= Settings.get_cell_number() or self.body[0].y < 0:
+            Settings.game_over()
+
+        # Check if the snake hits itself:
+        for block in self.body[1:]:
+            if block == self.body[0]:
+                Settings.game_over()
 
 
 class FOOD:
