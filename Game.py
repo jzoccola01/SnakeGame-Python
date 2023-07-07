@@ -54,6 +54,12 @@ def print_score(score):
     pygame.display.set_caption("Snake Game by Jonny and Zach | Score: " + str(score))
 
 
+def display_score(score):
+    font = pygame.font.SysFont("dubai", 40)
+    text = font.render("Score: "+str(score), 1, 'white')
+    Settings.get_screen().blit(text, (0, -10))
+
+
 # This function runs the gameplay
 def run_game():
     # initial settings:
@@ -72,7 +78,6 @@ def run_game():
             if event.type == SCREEN_UPDATE:
                 snake.move_snake()
                 snake.check_collision()
-
                 # If the snake gets the food
                 if snake.body[0] == food.pos:
                     food = gameObjects.FOOD()
@@ -97,6 +102,7 @@ def run_game():
         Settings.screen.fill('black')
         food.draw_food()
         snake.draw_snake()
+        display_score(score)
         pygame.display.update()
         Settings.clock.tick(60)
 

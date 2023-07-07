@@ -1,10 +1,8 @@
 import random
-
 import pygame
 from pygame.math import Vector2
-
-import Game
 import Settings
+import Game
 
 
 class SNAKE:
