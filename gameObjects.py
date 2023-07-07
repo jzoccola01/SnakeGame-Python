@@ -5,6 +5,8 @@ from pygame.math import Vector2
 
 import Settings
 
+# hi jonny :)
+
 
 class SNAKE:
     def __init__(self):
