@@ -15,8 +15,7 @@ pygame.display.set_caption("Snake Game by Jonny and Zach")
 
 def display_game_over():
     pygame.init()
-    screen = pygame.display.set_mode((800, 600))  # Adjust the size of the screen as needed
-    font = pygame.font.Font(None, 80)  # Define the font and size
+    font = pygame.font.Font(None, 75)  # Define the font and size
 
     text = font.render("Game Over", True, (255, 0, 0))  # Render the text
     text_rect = text.get_rect(center=(400, 200))  # Position the text at the center of the screen
@@ -27,10 +26,10 @@ def display_game_over():
     text_quit = font.render("Press Escape to Quit", True, (255, 255, 255))  # Render the text
     text_quit_rect = text_quit.get_rect(center=(400, 400))  # Position the text at the center of the screen
 
-    screen.fill((0, 0, 0))  # Fill the screen with black color
-    screen.blit(text, text_rect)  # Blit the text onto the screen
-    screen.blit(text_play_again, text_play_again_rect)  # Blit the text onto the screen
-    screen.blit(text_quit, text_quit_rect)  # Blit the text onto the screen
+    Settings.screen.fill((0, 0, 0))  # Fill the screen with black color
+    Settings.screen.blit(text, text_rect)  # Blit the text onto the screen
+    Settings.screen.blit(text_play_again, text_play_again_rect)  # Blit the text onto the screen
+    Settings.screen.blit(text_quit, text_quit_rect)  # Blit the text onto the screen
 
     pygame.display.flip()  # Update the screen
 
