@@ -57,7 +57,7 @@ def print_score(score):
 def display_score(score):
     font = pygame.font.SysFont("dubai", 40)
     text = font.render("Score: " + str(score), 1, 'white')
-    Settings.screen.blit(text, (5, 5))
+    Settings.screen.blit(text, (5, -12))
 
 
 # This function runs the gameplay
