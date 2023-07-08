@@ -31,7 +31,7 @@ class SNAKE:
 
     def check_collision(self):
         if self.body[0].x < 0 or self.body[0].x >= Settings.cell_number or self.body[
-            0].y >= Settings.cell_number or self.body[0].y < 0:
+                0].y >= Settings.cell_number or self.body[0].y < 0:
             Game.display_game_over()
 
         # Check if the snake hits itself:

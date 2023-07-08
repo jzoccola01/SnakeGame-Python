@@ -12,19 +12,53 @@ SCREEN_UPDATE = pygame.USEREVENT
 pygame.time.set_timer(SCREEN_UPDATE, 150)
 pygame.display.set_caption("Snake Game by Jonny and Zach")
 
+side_size: int = Settings.cell_size * Settings.cell_number
+scale: int = (75 * side_size) // 800
+
+
+def title_screen():
+    pygame.init()
+    color = 0
+
+    while True:
+        color += .5
+        tex = pygame.font.Font(None, scale * 2)  # Define the font and size
+        title = tex.render("S N A K E", True, (color, 255, color))  # Render the text
+        title_rect = title.get_rect(center=(side_size / 2, side_size * .4))
+
+        tex2 = pygame.font.Font(None, scale)  # Define the font and size
+        title2 = tex2.render("Press Enter to Play", True, (255, 255, 255))  # Render the text
+        title_rect2 = title2.get_rect(center=(side_size / 2, side_size * .6))
+
+        Settings.screen.fill((0, 0, 0))  # Fill the screen with black color
+        Settings.screen.blit(title, title_rect)  # Blit the text onto the screen
+        Settings.screen.blit(title2, title_rect2)  # Blit the text onto the screen
+        pygame.display.flip()
+        if color == 255:
+            color = 0
+
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:  # Play Again on Enter key press
+                    return
+                elif event.key == pygame.K_ESCAPE:  # Quit on Escape key press
+                    quit_game()
+                    return
+
 
 def display_game_over():
     pygame.init()
-    font = pygame.font.Font(None, 75)  # Define the font and size
+    font = pygame.font.Font(None, scale)  # Define the font and size
 
     text = font.render("Game Over", True, (255, 0, 0))  # Render the text
-    text_rect = text.get_rect(center=(400, 200))  # Position the text at the center of the screen
+    text_rect = text.get_rect(center=(side_size/2, side_size * .33))  # Position the text at the center of the screen
 
     text_play_again = font.render("Press Enter to Play Again", True, (255, 255, 255))  # Render the text
-    text_play_again_rect = text_play_again.get_rect(center=(400, 300))  # Position the text at the center of the screen
+    # Position the text at the center of the screen
+    text_play_again_rect = text_play_again.get_rect(center=(side_size/2, side_size/2))
 
     text_quit = font.render("Press Escape to Quit", True, (255, 255, 255))  # Render the text
-    text_quit_rect = text_quit.get_rect(center=(400, 400))  # Position the text at the center of the screen
+    text_quit_rect = text_quit.get_rect(center=(side_size/2, (side_size * .66)))  # Position the text at the center of the screen
 
     Settings.screen.fill((0, 0, 0))  # Fill the screen with black color
     Settings.screen.blit(text, text_rect)  # Blit the text onto the screen
@@ -64,6 +98,7 @@ def display_score(score):
 # This function runs the gameplay
 def run_game():
     # initial settings:
+    title_screen()
     pygame.init()
     snake = gameObjects.SNAKE()
     food = gameObjects.FOOD()
